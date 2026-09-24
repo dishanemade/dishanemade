@@ -1,14 +1,15 @@
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-load_dotenv()
-
 load_dotenv(override=True)
 
-llm=ChatGroq(
-    model="openai/gpt-oss-20b"
-)
+llm=ChatGroq(model="openai/gpt-oss-20b")
 
-prompt=input("Enter your Prompt : ")
+print("My first Chatbot")
 
-response=llm.invoke(prompt)
-print(response.content)
+while True:
+    prompt=input("user: ")
+    if prompt.lower()=="exit":
+        break
+    
+    response=llm.invoke(prompt)
+    print(response.content)
