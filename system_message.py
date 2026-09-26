@@ -17,10 +17,10 @@ while True:
 
     prompt=input("user: ")
     messages.append(HumanMessage(content=prompt))
-    if prompt.lower()=="exit":
+    if prompt=="exit":
         break
-    response=llm.invoke(prompt)
+    response=llm.invoke(messages)
     messages.append(AIMessage(content=response.content))
     print(response.content)
 
-print(messages)
+
